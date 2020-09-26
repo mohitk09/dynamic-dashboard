@@ -4,6 +4,9 @@ import './App.css';
 
 function App() {
   console.log('procss variav', process.env);
+  // eslint-disable-next-line no-undef
+  const myVar = REACT_APP_API;
+  console.log('myVar', myVar);
   return (
     <div className="App">
       <header className="App-header">
