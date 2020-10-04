@@ -14,10 +14,8 @@ import formatNum from "./format-number";
 
 ReactFC.fcRoot(FusionCharts, Charts, Maps, USARegion);
 
-const {REACT_APP_API, REACT_APP_SHEET_ID } = process.env;
-const url = `https://sheets.googleapis.com/v4/spreadsheets/${
-  REACT_APP_SHEET_ID
-}/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${REACT_APP_API}`;
+const { REACT_APP_API, REACT_APP_SHEET_ID } = process.env;
+const url = `https://sheets.googleapis.com/v4/spreadsheets/${REACT_APP_SHEET_ID}/values:batchGet?ranges=Sheet1&majorDimension=ROWS&key=${REACT_APP_API}`;
 
 class App extends Component {
   constructor() {
@@ -109,22 +107,28 @@ class App extends Component {
     }
 
     totalRevenue = amRevenue + ebRevenue + etRevenue;
-    ordersTrendRegion.push({
-      id: "01",
-      value: orderesTrendne
-    }, {
-      id: "02",
-      value: orderesTrendnw
-    }, {
-      id: "03",
-      value: orderesTrendse
-    }, {
-      id: "04",
-      value: orderesTrendsw
-    }, {
-      id: "05",
-      value: orderesTrendc
-    });
+    ordersTrendRegion.push(
+      {
+        id: "01",
+        value: orderesTrendne
+      },
+      {
+        id: "02",
+        value: orderesTrendnw
+      },
+      {
+        id: "03",
+        value: orderesTrendse
+      },
+      {
+        id: "04",
+        value: orderesTrendsw
+      },
+      {
+        id: "05",
+        value: orderesTrendc
+      }
+    );
 
     selectedValue = arg;
 
@@ -385,9 +389,7 @@ class App extends Component {
                             chart: {
                               caption: "Abandoned Cart Rate",
                               theme: "ecommerce",
-                              defaultCenterLabel: `${
-                                this.state.abandonedRate
-                              }%`,
+                              defaultCenterLabel: `${this.state.abandonedRate}%`,
                               paletteColors: "#EDF8B1, #000000"
                             },
                             data: [
